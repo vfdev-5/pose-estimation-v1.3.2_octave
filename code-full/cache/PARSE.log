@@ -1,0 +1,33 @@
+{Undefined function 'features' for input arguments of type 'double'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('initmodel', '/Users/yiyang/Downloads/20121128-pose-release-ver1.3/code-full/learning/initmodel.m', 19)" style="font-weight:bold">initmodel</a> (<a href="matlab: opentoline('/Users/yiyang/Downloads/20121128-pose-release-ver1.3/code-full/learning/initmodel.m',19,0)">line 19</a>)
+nf = length(features(zeros([3 3 3]),1));
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('trainmodel', '/Users/yiyang/Downloads/20121128-pose-release-ver1.3/code-full/learning/trainmodel.m', 13)" style="font-weight:bold">trainmodel</a> (<a href="matlab: opentoline('/Users/yiyang/Downloads/20121128-pose-release-ver1.3/code-full/learning/trainmodel.m',13,0)">line 13</a>)
+  model = initmodel(pos,sbin);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('PARSE_demo', '/Users/yiyang/Downloads/20121128-pose-release-ver1.3/code-full/PARSE_demo.m', 23)" style="font-weight:bold">PARSE_demo</a> (<a href="matlab: opentoline('/Users/yiyang/Downloads/20121128-pose-release-ver1.3/code-full/PARSE_demo.m',23,0)">line 23</a>)
+model = trainmodel(name,pos,neg,K,pa,sbin);
+} 
+compile
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mex')" style="font-weight:bold">mex</a>
+No supported compiler or SDK was found. For options, visit <a href="http://www.mathworks.com/support/compilers/R2014b/maci64.html">
+http://www.mathworks.com/support/compilers/R2014b/maci64.html</a>.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('compile', '/Users/yiyang/Downloads/20121128-pose-release-ver1.3/code-full/compile.m', 4)" style="font-weight:bold">compile</a> (<a href="matlab: opentoline('/Users/yiyang/Downloads/20121128-pose-release-ver1.3/code-full/compile.m',4,0)">line 4</a>)
+mex -O -largeArrayDims qp_one_sparse.cc
+} 
+mex setup
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mex')" style="font-weight:bold">mex</a>
+/Users/yiyang/Downloads/20121128-pose-release-ver1.3/code-full/learning/setup not
+found; check that you are in the correct current folder, and check the spelling of
+'/Users/yiyang/Downloads/20121128-pose-release-ver1.3/code-full/learning/setup'.
+} 
+cd ..
+cd ..
+mex -setup
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mex')" style="font-weight:bold">mex</a>
+No supported compiler or SDK was found. For options, visit <a href="http://www.mathworks.com/support/compilers/R2014b/maci64.html">
+http://www.mathworks.com/support/compilers/R2014b/maci64.html</a>.
+} 
+exit
