@@ -32,7 +32,9 @@ for p = 1:length(pa)
         spos(n).x2 = spos(n).x2(p);
         spos(n).y2 = spos(n).y2(p);
       end
-      models{k} = train(cls,model,spos,sneg,1,1);
+      # !!! FORK MODIF !!!
+      # Limit memory usage size by 2 GB
+      models{k} = train(cls,model,spos,sneg,1,1, 0.002, 2, 2);
     end
     model = mergemodels(models);
     save([cachedir cls],'model');
@@ -49,17 +51,21 @@ catch
 			pos(n).mix(p) = idx{p}(n);
 		end
 	end
-  model = train(cls,model,pos,neg,0,1);
+  # !!! FORK MODIF !!!
+  # Limit memory usage size by 2 GB
+  model = train(cls,model,pos,neg,0,1, 0.002, 2, 2);
   save([cachedir cls],'model');
 end
 
 cls = [name '_final_' num2str(K')'];
 try
- load([cachedir cls]);
+    load([cachedir cls]);
 catch
- if isfield(pos,'mix')
-   pos = rmfield(pos,'mix');
- end
- model = train(cls,model,pos,neg,0,1);
- save([cachedir cls],'model');
+    if isfield(pos,'mix')
+        pos = rmfield(pos,'mix');
+    end
+    # !!! FORK MODIF !!!
+    # Limit memory usage size by 2 GB
+    model = train(cls,model,pos,neg,0,1, 0.002, 2, 2);
+    save([cachedir cls],'model');
 end

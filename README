@@ -1,4 +1,67 @@
 
+======================
+Fork changes :
+======================
+
+
+File 'mex_unix/resize.cc' :
+    assert(sy-1 >= 0); -> assert(sy1-1 >= 0);
+    
+File 'compile.m' : 
+    remove -O
+    remove -largeArrayDims
+
+File 'visualization/HOGpicture.m' : 
+    imrotate(bim1, -(i-1)*20, 'crop'); -> imrotate(bim1, -(i-1)*20, 'linear', 'crop');
+
+
+In code-full : 
+===========
+
+Add file rgb_imrotate.m
+
+File 'learning/lincomb.cc', 'learning/score.cc', 'learning/qp_one_sparse.cc' :
+    #include "matrix.h" -> //#include "matrix.h"
+
+
+File 'PARSE_data.m' :
+    imwrite(imrotate(im,degree(i)),sprintf(posims_rotate,n,i)); -> imwrite(rgb_imrotate(im,degree(i)),sprintf(posims_rotate,n,i));
+
+
+File 'learning/map_rotate_points.m' :
+    hiB = ceil(max(abs(tformfwd([loA(1) hiA(2); hiA(1) hiA(2)],rotate)))/2)*2; -> hiB = ceil(max(abs(tformfwd(rotate, [loA(1) hiA(2); hiA(1) hiA(2)])))/2)*2;
+    
+    p_new = tformfwd(p+loA,rotate)-loB; -> p_new = tformfwd(rotate, p+loA)-loB;
+    
+    p_new = tforminv(p+loB,rotate)-loA; -> p_new = tforminv(rotate, p+loB)-loA;
+    
+    
+File 'learning/k_means.m' :
+    FIX BUG : error: k_means: A(I,J,...) = X: dimensions mismatch 
+    at line "c(t,:)=mean(X(gIdx==t,:));"
+
+
+File 'learning/point2box.m' :
+    ratio = len(n,:)./r; -> ratio = transpose(len(n,:)./r);
+    
+
+File 'learning/trainmodel.m' : 
+    Limit memory usage size by 2 GB 
+    models{k} = train(cls,model,spos,sneg,1,1, 0.002, 2, 2);
+
+
+File 'learning/warppos.m' : 
+    warped{i} = imresize(window, cropsize, 'bilinear'); -> warped{i} = imresize(uint8(window), cropsize, 'bilinear');
+
+
+
+
+
+
+===========================================================================
+
+
+
 Information
 ===========
 

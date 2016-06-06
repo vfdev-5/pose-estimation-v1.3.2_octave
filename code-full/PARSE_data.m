@@ -18,7 +18,7 @@ globals;
   
 cls = [name '_data'];
 try
-	load([cachedir cls]);
+  load([cachedir cls]);
 catch
   trainfrs_pos = 1:100; % training frames for positive
   testfrs_pos = 101:305; % testing frames for positive
@@ -43,6 +43,8 @@ catch
   for n = 1:length(pos)
     im = imread(pos(n).im);
     for i = 1:length(degree)
+      # !!! FORK MODIF !!!
+      #imwrite(imrotate(im,degree(i)),sprintf(posims_rotate,n,i));
       imwrite(rgb_imrotate(im,degree(i)),sprintf(posims_rotate,n,i));
     end
   end

@@ -31,6 +31,7 @@ twod_size = so(1:2);
 hiA = (twod_size-1)/2;
 loA = -hiA;
 
+# !!! FORK MODIF !!!
 #hiB = ceil(max(abs(tformfwd([loA(1) hiA(2); hiA(1) hiA(2)],rotate)))/2)*2;
 hiB = ceil(max(abs(tformfwd(rotate, [loA(1) hiA(2); hiA(1) hiA(2)])))/2)*2;
 loB = -hiB;
@@ -38,9 +39,11 @@ loB = -hiB;
 for i = 1:size(pts_in,1)
     p = [pts_in(i,2) pts_in(i,1)];
     if direction == 0
+        # !!! FORK MODIF !!!
         # p_new = tformfwd(p+loA,rotate)-loB;
         p_new = tformfwd(rotate, p+loA)-loB;
     else
+        # !!! FORK MODIF !!!
         #p_new = tforminv(p+loB,rotate)-loA;
         p_new = tforminv(rotate, p+loB)-loA;
     end

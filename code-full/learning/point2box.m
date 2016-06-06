@@ -16,7 +16,9 @@ end
 
 boxsize = zeros(1,length(pos));
 for n = 1:length(pos)
-  ratio = len(n,:)./r;
+  # !!! FORK MODIF !!!
+  #ratio = len(n,:)./r;
+  ratio = transpose(len(n,:)./r);
   boxsize(n) = quantile(ratio,0.75);
 end
 

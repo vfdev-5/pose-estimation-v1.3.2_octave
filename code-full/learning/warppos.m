@@ -25,6 +25,9 @@ for i = 1:numpos
   y1 = round(pos(i).y1-pady);
   y2 = round(pos(i).y2+pady);
   window = subarray(im, y1, y2, x1, x2, 1);
-  warped{i} = imresize(window, cropsize, 'bilinear');
+  
+  # !!! FORK MODIF !!!
+  #warped{i} = imresize(window, cropsize, 'bilinear');
+  warped{i} = imresize(uint8(window), cropsize, 'bilinear');
 end
 

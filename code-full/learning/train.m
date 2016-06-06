@@ -139,7 +139,7 @@ for i = 1:numpos
 		continue;
 	end    
 	% get example
-	im = warped{i};
+	im = double(warped{i});
 	feat = features(im, model.sbin);
 	qp_poswrite(feat,i,model);
 end

@@ -1,9 +1,7 @@
-# Created by https://www.gitignore.io/api/python, and modified...
-
 ## Custom ignores
 code-full/cache/imrotate*
 code-full/cache/imflip*
-
+code-full/cache/PARSE*
 
 ## Linux backup files
 *~
@@ -28,7 +26,7 @@ Desktop DB
 report/
 
 # Octave
-octave-workspace
+*octave-workspace*
 
 # Idea
 .idea
